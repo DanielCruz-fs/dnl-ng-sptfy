@@ -1,0 +1,31 @@
+<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-primary" id="navbar1">
+  <div class="container">
+      <a class="navbar-brand mr-1 mb-1 mt-0" [routerLink]="['/home']">
+        <img src="assets/images/logo.png" width="30" height="30" class="d-inline-block align-top" alt="spotify">
+        SpotiDan
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse justify-content-center" id="collapsingNavbar">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="layoutDd" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Layouts
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="layoutDd">
+                      <a class="dropdown-item px-2" href="./">Default</a>
+                      <a class="dropdown-item px-2" href="./template2.html">Layout 2</a>
+                      <a class="dropdown-item px-2" href="./template3.html">Layout 3</a>
+                  </div>
+              </li>
+              <li class="nav-item" routerLinkActive="active">
+                  <a class="nav-link" [routerLink]="['/home']">Home</a>
+              </li>
+              <li class="nav-item" routerLinkActive="active">
+                  <a class="nav-link" [routerLink]="['/search']">Search</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+</nav> 
