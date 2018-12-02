@@ -24,7 +24,7 @@
           <div class="row text-center">
               <div class="col-md-4 col-sm-6 mb-4 wow fadeInUp" *ngFor="let new of newReleases">
                   <div class="card h-100">
-                      <img class="card-img-top" [src]="new.images[1].url" alt="">
+                      <img class="card-img-top" [src]="new.images | noimage" alt="">
                       <div class="card-body d-flex flex-column justify-content-center align-items-center">
                           <h6 class="card-title text-primary"><span class="ion ion-ios-radio-outline"></span>
                             {{ new.name }}

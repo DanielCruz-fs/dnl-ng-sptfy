@@ -31,19 +31,24 @@
           <div class="row text-center">
               <div class="col-md-4 col-sm-6 mb-4 wow fadeInUp" *ngFor="let artist of artists">
                   <div class="card h-100">
-                      <img class="card-img-top" [src]="artist.images[0].url" alt="">
+                      <img class="card-img-top" [src]="artist.images | noimage" alt="">
+                      <div class="progress">
+                        <div class="progress-bar progress-bar-striped" role="progressbar" [style.width]="artist.popularity + '%'" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                          Popularity: {{ artist.popularity }}%
+                        </div>
+                      </div>
                       <div class="card-body d-flex flex-column justify-content-center align-items-center">
                           <h6 class="card-title text-primary"><span class="ion ion-ios-contact-outline"></span>
                             {{ artist.name }}
                           </h6>
                           <h6 class="card-title text-primary"><span class="ion ion-ios-people-outline"></span>
-                            {{ artist.followers.total }} followers.
+                            {{ artist.followers.total | number }} followers.
                           </h6>
                           <p class="card-text">
                             <span class="badge badge-pill badge-primary px-3 mx-2">
                               Genre: {{ artist.genres[0] }}
                             </span>
-                          </p>
+                          </p>                         
                           <a href="#" class="btn btn-outline-primary btn-block mt-auto">Button</a>
                       </div>
                   </div>
