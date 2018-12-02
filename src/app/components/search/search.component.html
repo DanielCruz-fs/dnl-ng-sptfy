@@ -7,10 +7,10 @@
               </h1>
               <p class="lead mb-3"><span>Start listening all your favorite artists.</span> To play and share music without the app, all within your browser, go to. <a class="font-weight-bold text-white" href="http://themestr.app">play.spotify.com</a></p>
               <div class="d-md-none d-sm-none d-lg-block d-xl-block">
-                <input #inputSearch type="text" (keyup)="search(inputSearch.value)" class="form-control form-control-lg mr-2" placeholder="Look for..." autofocus>
+                <input #inputSearchDesktop type="text" (keyup)="search(inputSearchDesktop.value)" class="form-control form-control-lg mr-2" placeholder="Look for..." autofocus>
               </div>
               <div class="col-6 offset-3 d-none d-lg-none d-xl-none d-sm-block d-md-block">
-                <input #inputSearch type="text" (keyup)="search(inputSearch.value)" class="form-control form-control-lg mr-2" placeholder="Look for..." autofocus>
+                <input #inputSearchMobile type="text" (keyup)="search(inputSearchMobile.value)" class="form-control form-control-lg mr-2" placeholder="Look for..." autofocus>
               </div>
           </div>
           <div class="col-xl-4 col-lg-6 col mr-auto order-1 order-lg-last align-items-center justify-content-center justify-content-lg-end d-flex">
@@ -24,6 +24,7 @@
       </div>
   </div>
 </div>
+<app-loader *ngIf="loaderStatus"></app-loader>
 <!-- Artists view -->
 <section class="container">
   <div class="row py-5">
@@ -46,7 +47,7 @@
                           </h6>
                           <p class="card-text">
                             <span class="badge badge-pill badge-primary px-3 mx-2">
-                              Genre: {{ artist.genres[0] }}
+                              Genre: {{ artist.genres | genre }}
                             </span>
                           </p>                         
                           <a href="#" class="btn btn-outline-primary btn-block mt-auto">Button</a>

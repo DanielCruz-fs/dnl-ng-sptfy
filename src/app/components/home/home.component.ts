@@ -9,10 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   newReleases: any[] = [];
+  loaderStatus: boolean = true;
 
   constructor(private spotifyService: SpotifyService) { 
     this.spotifyService.getNewReleases().subscribe( (data: any) => {
       this.newReleases = data;
+      this.loaderStatus = false;
     });
   }
 
