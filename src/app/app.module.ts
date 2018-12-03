@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { NoimagePipe } from './pipes/noimage.pipe';
 import { LoaderComponent } from './components/shared/loader/loader.component';
 import { GenrePipe } from './pipes/genre.pipe';
+import { SafeDomPipe } from './pipes/safe-dom.pipe';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { GenrePipe } from './pipes/genre.pipe';
     NavbarComponent,
     NoimagePipe,
     LoaderComponent,
-    GenrePipe
+    GenrePipe,
+    SafeDomPipe
   ],
   imports: [
     BrowserModule,

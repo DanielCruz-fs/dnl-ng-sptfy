@@ -12,12 +12,19 @@ export class HomeComponent implements OnInit {
   newReleases: any[] = [];
   loaderStatus: boolean = true;
   termToLoad: string = 'new releases';
+  errorStatus: boolean = false;
+  errorMessage: string;
 
   constructor(private spotifyService: SpotifyService, private router: Router) { 
     this.spotifyService.getNewReleases().subscribe( (data: any) => {
       console.log(data);
       this.newReleases = data;
       this.loaderStatus = false;
+    }, errorData => {
+      this.errorStatus = true;
+      this.loaderStatus = false;
+      console.log(errorData);
+      this.errorMessage = errorData.error.error.message;
     });
   }
 
