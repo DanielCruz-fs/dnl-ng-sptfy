@@ -18,7 +18,7 @@
       </div>
   </div>
 </div>
-<app-loader *ngIf="loaderStatus"></app-loader>
+<app-loader [loadingTerm]="termToLoad"  *ngIf="loaderStatus"></app-loader>
 <section class="container">
   <div class="row py-5">
       <div class="col-12 my-auto">
@@ -38,7 +38,7 @@
                               {{ artist.name }}
                             </span>
                           </p>
-                          <a href="#" class="btn btn-outline-primary btn-block mt-auto">Button</a>
+                          <button (click)="goToArtist(new)" class="btn btn-outline-primary btn-block mt-auto">More</button>
                       </div>
                   </div>
               </div>

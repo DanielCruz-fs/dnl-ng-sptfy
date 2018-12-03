@@ -1,5 +1,7 @@
 import { SpotifyService } from './../../services/spotify.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-search',
@@ -9,8 +11,9 @@ import { Component, OnInit } from '@angular/core';
 export class SearchComponent implements OnInit {
   artists: any[] = [];
   loaderStatus: boolean;
+  termToLoad: string = 'artists';
 
-  constructor(private spotifyService: SpotifyService) { }
+  constructor(private spotifyService: SpotifyService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -18,7 +21,7 @@ export class SearchComponent implements OnInit {
   search(artist: string) {
     if (artist) {
       this.loaderStatus = true;
-      this.spotifyService.getArtist(artist).subscribe( (data: any) => {
+      this.spotifyService.getArtists(artist).subscribe( (data: any) => {
         console.log(data);
         this.artists = data;
         this.loaderStatus = false;
@@ -26,6 +29,12 @@ export class SearchComponent implements OnInit {
     } else {
       this.loaderStatus = false;
     }
+  }
+
+  goToArtist(objectItem: any) {
+    // console.log(objectItem);
+    let artistId: string = objectItem.id;
+    this.router.navigate(['/artist', artistId]);
   }
 
 }

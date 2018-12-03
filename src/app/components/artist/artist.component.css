@@ -1,0 +1,8 @@
+#img-avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 150px;
+}
+.avatar-background {
+  background-color: rgba(95, 63, 63, 0.5);
+}
